@@ -1,6 +1,6 @@
 {
-  "title": "A JSON Schema for Swagger 2.0 API.",
-  "id": "http://swagger.io/v2/schema.json#",
+  "title": "An Unofficial JSON Schema for Swagger 2.1 API.",
+  "id": "http://cdn.rawgit.com/dutradda/OpenAPI-Specification-2.1/master/schema.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "required": [
@@ -18,7 +18,7 @@
     "swagger": {
       "type": "string",
       "enum": [
-        "2.0"
+        "2.1"
       ],
       "description": "The Swagger version of this document."
     },
@@ -182,12 +182,30 @@
           "$ref": "#/definitions/pathItem"
         }
       },
+      "properties": {
+        "allOf": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/paths"
+          }
+        }
+      },
       "additionalProperties": false
     },
     "definitions": {
       "type": "object",
       "additionalProperties": {
         "$ref": "#/definitions/schema"
+      },
+      "properties": {
+        "allOf": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/definitions"
+          }
+        }
       },
       "description": "One or more JSON objects describing the schemas being consumed and produced by the API."
     },
@@ -238,7 +256,8 @@
     "operation": {
       "type": "object",
       "required": [
-        "responses"
+        "responses",
+        "operationId"
       ],
       "additionalProperties": false,
       "patternProperties": {
@@ -1057,7 +1076,16 @@
         "externalDocs": {
           "$ref": "#/definitions/externalDocs"
         },
-        "example": {}
+        "example": {},
+        "anyOf": {
+          "$ref": "http://json-schema.org/draft-04/schema#/properties/anyOf"
+        },
+        "oneOf": {
+          "$ref": "http://json-schema.org/draft-04/schema#/properties/oneOf"
+        },
+        "patternProperties": {
+          "$ref": "http://json-schema.org/draft-04/schema#/properties/patternProperties"
+        }
       },
       "additionalProperties": false
     },
