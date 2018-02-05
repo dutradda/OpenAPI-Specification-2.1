@@ -1,0 +1,25 @@
+{
+    "post_dress": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["size"],
+        "properties": {
+            "size": {"enum": ["P", "M", "G"]}
+        },
+        "patternProperties": {
+            "^color(s|ed)?$": {"$ref": "../definitions.json#/color"}
+        }
+    },
+    "get_dress": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "size"],
+        "properties": {
+            "id": {"type": "integer"},
+            "size": {"enum": ["P", "M", "G"]}
+        },
+        "patternProperties": {
+            "^color(s|ed)?$": {"$ref": "../definitions.json#/color"}
+        }
+    }
+}

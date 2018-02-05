@@ -1,0 +1,21 @@
+{
+    "post_shoe": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["size", "color"],
+        "properties": {
+            "size": {"type": "integer"},
+            "color": {"$ref": "../definitions.json#/color"}
+        }
+    },
+    "get_shoe": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "size", "color"],
+        "properties": {
+            "id": {"type": "integer"},
+            "size": {"type": "integer"},
+            "color": {"$ref": "../definitions.json#/color"}
+        }
+    }
+}

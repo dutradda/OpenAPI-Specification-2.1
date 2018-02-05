@@ -1,0 +1,9 @@
+{
+    "color": {
+        "enum": [
+            "red",
+            "green",
+            "blue"
+        ]
+    }
+}

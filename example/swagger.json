@@ -1,0 +1,23 @@
+{
+    "swagger":"2.1",
+    "info":{
+        "version": "0.0.1",
+        "title": "Store Example"
+    },
+    "paths": {
+        "allOf": [{
+            "$ref": "dresses/swagger.json"
+        },{
+            "$ref": "shoes/swagger.json"
+        }]
+    },
+    "definitions": {
+        "allOf": [{
+            "$ref": "definitions.json"
+        },{
+            "$ref": "dresses/definitions.json"
+        },{
+            "$ref": "shoes/definitions.json"
+        }]
+    }
+}

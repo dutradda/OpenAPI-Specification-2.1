@@ -1,0 +1,15 @@
+{
+    "/dresses": {
+        "post": {
+            "operationId": "post_dress",
+            "responses": {
+                "201": {
+                    "description": "Created"
+                }
+            }
+        }
+    },
+    "/dresses/{id}": {
+
+    }
+}
