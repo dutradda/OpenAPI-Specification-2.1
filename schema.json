@@ -446,7 +446,8 @@
             "number",
             "integer",
             "boolean",
-            "array"
+            "array",
+            "object"
           ]
         },
         "format": {
@@ -499,6 +500,9 @@
         },
         "description": {
           "type": "string"
+        },
+        "schema": {
+          "$ref": "#/definitions/schema"
         }
       },
       "patternProperties": {
@@ -586,7 +590,8 @@
             "number",
             "boolean",
             "integer",
-            "array"
+            "array",
+            "object"
           ]
         },
         "format": {
@@ -636,6 +641,9 @@
         },
         "multipleOf": {
           "$ref": "#/definitions/multipleOf"
+        },
+        "schema": {
+          "$ref": "#/definitions/schema"
         }
       }
     },
@@ -679,7 +687,8 @@
             "number",
             "boolean",
             "integer",
-            "array"
+            "array",
+            "object"
           ]
         },
         "format": {
@@ -729,6 +738,9 @@
         },
         "multipleOf": {
           "$ref": "#/definitions/multipleOf"
+        },
+        "schema": {
+          "$ref": "#/definitions/schema"
         }
       }
     },
@@ -773,7 +785,8 @@
             "boolean",
             "integer",
             "array",
-            "file"
+            "file",
+            "object"
           ]
         },
         "format": {
@@ -823,6 +836,9 @@
         },
         "multipleOf": {
           "$ref": "#/definitions/multipleOf"
+        },
+        "schema": {
+          "$ref": "#/definitions/schema"
         }
       }
     },
@@ -866,7 +882,8 @@
             "number",
             "boolean",
             "integer",
-            "array"
+            "array",
+            "object"
           ]
         },
         "format": {
@@ -916,6 +933,9 @@
         },
         "multipleOf": {
           "$ref": "#/definitions/multipleOf"
+        },
+        "schema": {
+          "$ref": "#/definitions/schema"
         }
       }
     },
@@ -1056,6 +1076,15 @@
             "$ref": "#/definitions/schema"
           }
         },
+        "anyOf": {
+          "$ref": "#/definitions/schema/properties/allOf"
+        },
+        "oneOf": {
+          "$ref": "#/definitions/schema/properties/allOf"
+        },
+        "patternProperties": {
+          "$ref": "http://json-schema.org/draft-04/schema#/properties/patternProperties"
+        },
         "properties": {
           "type": "object",
           "additionalProperties": {
@@ -1076,16 +1105,7 @@
         "externalDocs": {
           "$ref": "#/definitions/externalDocs"
         },
-        "example": {},
-        "anyOf": {
-          "$ref": "http://json-schema.org/draft-04/schema#/properties/anyOf"
-        },
-        "oneOf": {
-          "$ref": "http://json-schema.org/draft-04/schema#/properties/oneOf"
-        },
-        "patternProperties": {
-          "$ref": "http://json-schema.org/draft-04/schema#/properties/patternProperties"
-        }
+        "example": {}
       },
       "additionalProperties": false
     },
@@ -1134,73 +1154,17 @@
       "additionalProperties": false
     },
     "primitivesItems": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "string",
-            "number",
-            "integer",
-            "boolean",
-            "array"
-          ]
-        },
-        "format": {
-          "type": "string"
-        },
-        "items": {
-          "$ref": "#/definitions/primitivesItems"
-        },
-        "collectionFormat": {
-          "$ref": "#/definitions/collectionFormat"
-        },
-        "default": {
-          "$ref": "#/definitions/default"
-        },
-        "maximum": {
-          "$ref": "#/definitions/maximum"
-        },
-        "exclusiveMaximum": {
-          "$ref": "#/definitions/exclusiveMaximum"
-        },
-        "minimum": {
-          "$ref": "#/definitions/minimum"
-        },
-        "exclusiveMinimum": {
-          "$ref": "#/definitions/exclusiveMinimum"
-        },
-        "maxLength": {
-          "$ref": "#/definitions/maxLength"
-        },
-        "minLength": {
-          "$ref": "#/definitions/minLength"
-        },
-        "pattern": {
-          "$ref": "#/definitions/pattern"
-        },
-        "maxItems": {
-          "$ref": "#/definitions/maxItems"
-        },
-        "minItems": {
-          "$ref": "#/definitions/minItems"
-        },
-        "uniqueItems": {
-          "$ref": "#/definitions/uniqueItems"
-        },
-        "enum": {
-          "$ref": "#/definitions/enum"
-        },
-        "multipleOf": {
-          "$ref": "#/definitions/multipleOf"
+      "anyOf": [{
+        "type": "object",
+        "additionalProperties": false,
+        "patternProperties": {
+          "^x-": {
+            "$ref": "#/definitions/vendorExtension"
+          }
         }
-      },
-      "patternProperties": {
-        "^x-": {
-          "$ref": "#/definitions/vendorExtension"
-        }
-      }
+      },{
+        "$ref": "http://json-schema.org/draft-04/schema#/properties/items"
+      }]
     },
     "security": {
       "type": "array",
