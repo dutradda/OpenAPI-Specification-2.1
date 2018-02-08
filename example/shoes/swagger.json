@@ -6,7 +6,7 @@
                 "in": "body",
                 "schema": {"$ref": "definitions.json#/post_shoe"}
             }],
-            "x-swagger-router-controller": "store.shoes_controller",
+            "controllerId": "store.shoes_controller",
             "operationId": "post_shoe",
             "responses": {
                 "201": {
@@ -22,8 +22,12 @@
                 "in": "path",
                 "type": "integer",
                 "required": true
+            },{
+                "name": "color",
+                "in": "header",
+                "type": "object"
             }],
-            "x-swagger-router-controller": "store.shoes_controller",
+            "controllerId": "store.shoes_controller",
             "operationId": "post_shoe",
             "responses": {
                 "201": {

@@ -34,11 +34,11 @@ Enabled the use of the [`allof`](https://github.com/OAI/OpenAPI-Specification/bl
 
 
 ### 3.
-The [`operationId`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#operation-object) property of the [`Paths Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#pathsObject) is mandatory now. Example:
+Added the `controllerId` property to the [`Paths Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#pathsObject). This property is required. Example:
 
 ```json
 "post": {
-    "x-swagger-router-controller": "test_controller",
+    "controllerId": "test_controller",
     "operationId": "post_test",
     "responses": {
         "201": {
@@ -50,6 +50,10 @@ The [`operationId`](https://github.com/OAI/OpenAPI-Specification/blob/master/ver
 
 
 ### 4.
+The [`operationId`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#operation-object) property of the [`Paths Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#pathsObject) is mandatory now.
+
+
+### 5.
 Enabled the use of the [`anyOf`](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.5.4) directive on the [`Schema Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schema-object). Example:
 
 ```json
@@ -68,7 +72,7 @@ Enabled the use of the [`anyOf`](https://tools.ietf.org/html/draft-fge-json-sche
 ```
 
 
-### 5.
+### 6.
 Enabled the use of the [`oneOf`](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.5.5) directive on the [`Schema Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schema-object) object. Example:
 
 ```json
@@ -87,7 +91,7 @@ Enabled the use of the [`oneOf`](https://tools.ietf.org/html/draft-fge-json-sche
 ```
 
 
-### 6.
+### 7.
 Enabled the use of the [`patternProperties`](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.4.4) directive on the [`Schema Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schema-object) object. Example:
 
 ```json
@@ -105,7 +109,7 @@ Enabled the use of the [`patternProperties`](https://tools.ietf.org/html/draft-f
 ```
 
 
-### 7.
+### 8.
 Enabled [`object`](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.4) type for any parameter, not just for body anymore. Example:
 
 ```json
@@ -120,7 +124,7 @@ Enabled [`object`](https://tools.ietf.org/html/draft-fge-json-schema-validation-
 ```
 
 
-### 8.
+### 9.
 The [`items`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#parameterObject) directive of the `array` type now accepts objects and any directive of the original [json-schema draft4](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.3). Example:
 
 ```json

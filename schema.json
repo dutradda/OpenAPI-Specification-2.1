@@ -1,6 +1,5 @@
 {
   "title": "An Unofficial JSON Schema for Swagger 2.1 API.",
-  "id": "http://cdn.rawgit.com/dutradda/OpenAPI-Specification-2.1/master/schema.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "required": [
@@ -257,6 +256,7 @@
       "type": "object",
       "required": [
         "responses",
+        "controllerId",
         "operationId"
       ],
       "additionalProperties": false,
@@ -284,9 +284,13 @@
         "externalDocs": {
           "$ref": "#/definitions/externalDocs"
         },
+        "controllerId": {
+          "type": "string",
+          "description": "An identifier of the controller."
+        },
         "operationId": {
           "type": "string",
-          "description": "A unique identifier of the operation."
+          "description": "An unique identifier of the operation."
         },
         "produces": {
           "description": "A list of MIME types the API can produce.",
