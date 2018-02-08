@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "required": [
+    "name",
+    "in",
+    "schema",
+    "type"
+  ],
+  "patternProperties": {
+    "^x-": { "$ref": "../definitions.json#/vendorExtension" }
+  },
+  "required": ["required"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["object"]
+    },
+    "in": { "$ref": "pathDefinition.json#/properties/in" },
+    "required": { "$ref": "pathDefinition.json#/properties/required" },
+    "description": { "$ref": "commonPropertiesDefinition.json#/description" },
+    "name": { "$ref": "commonPropertiesDefinition.json#/name" },
+    "required": { "$ref": "commonPropertiesDefinition.json#/required" },
+    "schema": { "$ref": "../schemaDefinition.json#" }
+  },
+  "additionalProperties": false
+}

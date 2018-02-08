@@ -1,0 +1,27 @@
+{
+  "required": {
+    "type": "boolean",
+    "description": "Determines whether or not this parameter is required or optional.",
+    "default": false
+  },
+  "description": {
+    "type": "string",
+    "description": "A brief description of the parameter. This could contain examples of use.  GitHub Flavored Markdown is allowed."
+  },
+  "name": {
+    "type": "string",
+    "description": "The name of the parameter."
+  },
+  "format": {
+    "type": "string"
+  },
+  "in": {
+    "type": "string",
+    "description": "Determines the location of the parameter.",
+  },
+  "allowEmptyValue": {
+    "type": "boolean",
+    "default": false,
+    "description": "allows sending a parameter by name only or with an empty value."
+  },
+}

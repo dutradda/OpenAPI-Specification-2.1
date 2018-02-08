@@ -1,0 +1,263 @@
+{
+  "security": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      }
+    },
+    "uniqueItems": true
+  },
+  "securityDefinitions": {
+    "type": "object",
+    "additionalProperties": {
+      "oneOf": [
+        {
+          "$ref": "#/basicAuthenticationSecurity"
+        },
+        {
+          "$ref": "#/apiKeySecurity"
+        },
+        {
+          "$ref": "#/oauth2ImplicitSecurity"
+        },
+        {
+          "$ref": "#/oauth2PasswordSecurity"
+        },
+        {
+          "$ref": "#/oauth2ApplicationSecurity"
+        },
+        {
+          "$ref": "#/oauth2AccessCodeSecurity"
+        }
+      ]
+    }
+  },
+
+  "basicAuthenticationSecurity": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "type"
+    ],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [
+          "basic"
+        ]
+      },
+      "description": {
+        "type": "string"
+      }
+    },
+    "patternProperties": {
+      "^x-": {
+        "$ref": "definitions.json#/vendorExtension"
+      }
+    }
+  },
+  "apiKeySecurity": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "type",
+      "name",
+      "in"
+    ],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [
+          "apiKey"
+        ]
+      },
+      "name": {
+        "type": "string"
+      },
+      "in": {
+        "type": "string",
+        "enum": [
+          "header",
+          "query"
+        ]
+      },
+      "description": {
+        "type": "string"
+      }
+    },
+    "patternProperties": {
+      "^x-": {
+        "$ref": "definitions.json#/vendorExtension"
+      }
+    }
+  },
+  "oauth2ImplicitSecurity": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "type",
+      "flow",
+      "authorizationUrl"
+    ],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [
+          "oauth2"
+        ]
+      },
+      "flow": {
+        "type": "string",
+        "enum": [
+          "implicit"
+        ]
+      },
+      "scopes": {
+        "$ref": "#/oauth2Scopes"
+      },
+      "authorizationUrl": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": {
+        "type": "string"
+      }
+    },
+    "patternProperties": {
+      "^x-": {
+        "$ref": "definitions.json#/vendorExtension"
+      }
+    }
+  },
+  "oauth2PasswordSecurity": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "type",
+      "flow",
+      "tokenUrl"
+    ],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [
+          "oauth2"
+        ]
+      },
+      "flow": {
+        "type": "string",
+        "enum": [
+          "password"
+        ]
+      },
+      "scopes": {
+        "$ref": "#/oauth2Scopes"
+      },
+      "tokenUrl": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": {
+        "type": "string"
+      }
+    },
+    "patternProperties": {
+      "^x-": {
+        "$ref": "definitions.json#/vendorExtension"
+      }
+    }
+  },
+  "oauth2ApplicationSecurity": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "type",
+      "flow",
+      "tokenUrl"
+    ],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [
+          "oauth2"
+        ]
+      },
+      "flow": {
+        "type": "string",
+        "enum": [
+          "application"
+        ]
+      },
+      "scopes": {
+        "$ref": "#/oauth2Scopes"
+      },
+      "tokenUrl": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": {
+        "type": "string"
+      }
+    },
+    "patternProperties": {
+      "^x-": {
+        "$ref": "definitions.json#/vendorExtension"
+      }
+    }
+  },
+  "oauth2AccessCodeSecurity": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "type",
+      "flow",
+      "authorizationUrl",
+      "tokenUrl"
+    ],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [
+          "oauth2"
+        ]
+      },
+      "flow": {
+        "type": "string",
+        "enum": [
+          "accessCode"
+        ]
+      },
+      "scopes": {
+        "$ref": "#/oauth2Scopes"
+      },
+      "authorizationUrl": {
+        "type": "string",
+        "format": "uri"
+      },
+      "tokenUrl": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": {
+        "type": "string"
+      }
+    },
+    "patternProperties": {
+      "^x-": {
+        "$ref": "definitions.json#/vendorExtension"
+      }
+    }
+  },
+  "oauth2Scopes": {
+    "type": "object",
+    "additionalProperties": {
+      "type": "string"
+    }
+  }
+}

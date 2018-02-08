@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "required": [
+    "name",
+    "in",
+    "type"
+  ],
+  "oneOf": [
+    {
+      "oneOf": [
+        { "$ref": "headerDefinition.json#" },
+        { "$ref": "headerObjectDefinition.json#" }
+      ]
+    },
+    {
+      "oneOf": [
+        { "$ref": "formDataDefinition.json#" },
+        { "$ref": "formDataObjectDefinition.json#" }
+      ]
+    },
+    {
+      "oneOf": [
+        { "$ref": "pathDefinition.json#" },
+        { "$ref": "pathObjectDefinition.json#" }
+      ]
+    },
+    {
+      "oneOf": [
+        { "$ref": "queryDefinition.json#" },
+        { "$ref": "queryObjectDefinition.json#" }
+      ]
+    }
+  ]
+}

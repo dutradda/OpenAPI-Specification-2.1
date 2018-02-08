@@ -1,0 +1,439 @@
+{
+  "info": {
+    "type": "object",
+    "description": "General information about the API.",
+    "required": [
+      "version",
+      "title"
+    ],
+    "additionalProperties": false,
+    "patternProperties": {
+      "^x-": {
+        "$ref": "#/vendorExtension"
+      }
+    },
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "A unique and precise title of the API."
+      },
+      "version": {
+        "type": "string",
+        "description": "A semantic version number of the API."
+      },
+      "description": {
+        "type": "string",
+        "description": "A longer description of the API. Should be different from the title.  GitHub Flavored Markdown is allowed."
+      },
+      "termsOfService": {
+        "type": "string",
+        "description": "The terms of service for the API."
+      },
+      "contact": {
+        "$ref": "#/contact"
+      },
+      "license": {
+        "$ref": "#/license"
+      }
+    }
+  },
+  "vendorExtension": {
+    "description": "Any property starting with x- is valid.",
+    "additionalProperties": true,
+    "additionalItems": true
+  },
+  "contact": {
+    "type": "object",
+    "description": "Contact information for the owners of the API.",
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "The identifying name of the contact person/organization."
+      },
+      "url": {
+        "type": "string",
+        "description": "The URL pointing to the contact information.",
+        "format": "uri"
+      },
+      "email": {
+        "type": "string",
+        "description": "The email address of the contact person/organization.",
+        "format": "email"
+      }
+    },
+    "patternProperties": {
+      "^x-": {
+        "$ref": "#/vendorExtension"
+      }
+    }
+  },
+  "license": {
+    "type": "object",
+    "required": [
+      "name"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "The name of the license type. It's encouraged to use an OSI compatible license."
+      },
+      "url": {
+        "type": "string",
+        "description": "The URL pointing to the license.",
+        "format": "uri"
+      }
+    },
+    "patternProperties": {
+      "^x-": {
+        "$ref": "#/vendorExtension"
+      }
+    }
+  },
+  "paths": {
+    "type": "object",
+    "description": "Relative paths to the individual endpoints. They must be relative to the 'basePath'.",
+    "patternProperties": {
+      "^x-": {
+        "$ref": "#/vendorExtension"
+      },
+      "^/": {
+        "$ref": "#/pathItem"
+      }
+    },
+    "properties": {
+      "allOf": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "$ref": "#/paths"
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "pathItem": {
+    "type": "object",
+    "additionalProperties": false,
+    "patternProperties": {
+      "^x-": {
+        "$ref": "#/vendorExtension"
+      }
+    },
+    "properties": {
+      "$ref": {
+        "type": "string"
+      },
+      "get": {
+        "$ref": "#/operation"
+      },
+      "put": {
+        "$ref": "#/operation"
+      },
+      "post": {
+        "$ref": "#/operation"
+      },
+      "delete": {
+        "$ref": "#/operation"
+      },
+      "options": {
+        "$ref": "#/operation"
+      },
+      "head": {
+        "$ref": "#/operation"
+      },
+      "patch": {
+        "$ref": "#/operation"
+      },
+      "parameters": {
+        "$ref": "#/parametersList"
+      }
+    }
+  },
+  "operation": {
+    "type": "object",
+    "required": [
+      "responses",
+      "controllerId",
+      "operationId"
+    ],
+    "additionalProperties": false,
+    "patternProperties": {
+      "^x-": {
+        "$ref": "#/vendorExtension"
+      }
+    },
+    "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      },
+      "summary": {
+        "type": "string",
+        "description": "A brief summary of the operation."
+      },
+      "description": {
+        "type": "string",
+        "description": "A longer description of the operation, GitHub Flavored Markdown is allowed."
+      },
+      "externalDocs": {
+        "$ref": "#/externalDocs"
+      },
+      "controllerId": {
+        "type": "string",
+        "description": "An identifier of the controller."
+      },
+      "operationId": {
+        "type": "string",
+        "description": "An unique identifier of the operation."
+      },
+      "produces": {
+        "description": "A list of MIME types the API can produce.",
+        "allOf": [
+          {
+            "$ref": "#/mediaTypeList"
+          }
+        ]
+      },
+      "consumes": {
+        "description": "A list of MIME types the API can consume.",
+        "allOf": [
+          {
+            "$ref": "#/mediaTypeList"
+          }
+        ]
+      },
+      "parameters": {
+        "$ref": "#/parametersList"
+      },
+      "responses": {
+        "$ref": "responsesDefinition.json#"
+      },
+      "schemes": {
+        "$ref": "#/schemesList"
+      },
+      "deprecated": {
+        "type": "boolean",
+        "default": false
+      },
+      "security": {
+        "$ref": "#/security"
+      }
+    }
+  },
+  "externalDocs": {
+    "type": "object",
+    "additionalProperties": false,
+    "description": "information about external documentation",
+    "required": [
+      "url"
+    ],
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "patternProperties": {
+      "^x-": {
+        "$ref": "#/vendorExtension"
+      }
+    }
+  },
+  "mediaTypeList": {
+    "type": "array",
+    "items": {
+      "type": "string",
+      "description": "The MIME type of the HTTP message."
+    },
+    "uniqueItems": true
+  },
+  "parametersList": {
+    "type": "array",
+    "description": "The parameters needed to send a valid API call.",
+    "additionalItems": false,
+    "items": {
+      "oneOf": [
+        {
+          "oneOf": [
+            {"$ref": "parameters/bodyDefinition.json#"},
+            {"$ref": "parameters/nonBodyDefinition.json#"}
+          ]
+        },
+        {
+          "$ref": "#/jsonReference"
+        }
+      ]
+    },
+    "uniqueItems": true
+  },
+  "jsonReference": {
+    "type": "object",
+    "required": [
+      "$ref"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "$ref": {
+        "type": "string"
+      }
+    }
+  },
+  "schemesList": {
+    "type": "array",
+    "description": "The transfer protocol of the API.",
+    "items": {
+      "type": "string",
+      "enum": [
+        "http",
+        "https",
+        "ws",
+        "wss"
+      ]
+    },
+    "uniqueItems": true
+  },
+  "definitions": {
+    "type": "object",
+    "additionalProperties": {
+      "$ref": "schemaDefinition.json#"
+    },
+    "properties": {
+      "allOf": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "$ref": "#/definitions"
+        }
+      }
+    },
+    "description": "One or more JSON objects describing the schemas being consumed and produced by the API."
+  },
+  "examples": {
+    "type": "object",
+    "additionalProperties": true
+  },
+  "fileSchema": {
+    "type": "object",
+    "description": "A deterministic version of a JSON Schema object.",
+    "patternProperties": {
+      "^x-": {
+        "$ref": "#/vendorExtension"
+      }
+    },
+    "required": [
+      "type"
+    ],
+    "properties": {
+      "format": {
+        "type": "string"
+      },
+      "title": {
+        "$ref": "schemaDefinition.json#/properties/title"
+      },
+      "description": {
+        "$ref": "schemaDefinition.json#/properties/description"
+      },
+      "default": {
+        "$ref": "schemaDefinition.json#/properties/default"
+      },
+      "required": {
+        "$ref": "schemaDefinition.json#/definitions/stringArray"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "file"
+        ]
+      },
+      "readOnly": {
+        "type": "boolean",
+        "default": false
+      },
+      "externalDocs": {
+        "$ref": "#/externalDocs"
+      },
+      "example": {}
+    },
+    "additionalProperties": false
+  },
+  "xml": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "namespace": {
+        "type": "string"
+      },
+      "prefix": {
+        "type": "string"
+      },
+      "attribute": {
+        "type": "boolean",
+        "default": false
+      },
+      "wrapped": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "patternProperties": {
+      "^x-": {
+        "$ref": "#/vendorExtension"
+      }
+    }
+  },
+  "tag": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "name"
+    ],
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "externalDocs": {
+        "$ref": "#/externalDocs"
+      }
+    },
+    "patternProperties": {
+      "^x-": {
+        "$ref": "#/vendorExtension"
+      }
+    }
+  },
+  "collectionFormat": {
+    "type": "string",
+    "enum": [
+      "csv",
+      "ssv",
+      "tsv",
+      "pipes"
+    ],
+    "default": "csv"
+  },
+  "collectionFormatWithMulti": {
+    "type": "string",
+    "enum": [
+      "csv",
+      "ssv",
+      "tsv",
+      "pipes",
+      "multi"
+    ],
+    "default": "csv"
+  }
+}

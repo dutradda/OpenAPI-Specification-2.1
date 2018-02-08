@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "required": [
+    "name",
+    "in",
+    "schema",
+    "type"
+  ],
+  "patternProperties": {
+    "^x-": { "$ref": "../definitions.json#/vendorExtension" }
+  },
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["object"]
+    },
+    "in": { "$ref": "headerDefinition.json#/properties/in" },
+    "description": { "$ref": "commonPropertiesDefinition.json#/description" },
+    "name": { "$ref": "commonPropertiesDefinition.json#/name" },
+    "required": { "$ref": "commonPropertiesDefinition.json#/required" },
+    "schema": { "$ref": "../schemaDefinition.json#" }
+  },
+  "additionalProperties": false
+}

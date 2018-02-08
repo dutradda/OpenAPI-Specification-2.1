@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["type"],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [
+          "string",
+          "number",
+          "integer",
+          "boolean",
+          "array"
+        ]
+      },
+      "format": { "type": "string" },
+      "items": { "$ref": "schemaDefinition.json#/properties#/items" },
+      "collectionFormat": { "$ref": "definitions.json#/collectionFormat" },
+      "default": { "$ref": "schemaDefinition.json#/properties#/default" },
+      "maximum": { "$ref": "schemaDefinition.json#/properties#/maximum" },
+      "exclusiveMaximum": { "$ref": "schemaDefinition.json#/properties#/exclusiveMaximum" },
+      "minimum": { "$ref": "schemaDefinition.json#/properties#/minimum" },
+      "exclusiveMinimum": { "$ref": "schemaDefinition.json#/properties#/exclusiveMinimum" },
+      "maxLength": { "$ref": "schemaDefinition.json#/definitions/positiveInteger" },
+      "minLength": { "$ref": "schemaDefinition.json#/definitions/positiveIntegerDefault0" },
+      "pattern": { "$ref": "schemaDefinition.json#/properties#/pattern" },
+      "maxItems": { "$ref": "schemaDefinition.json#/definitions/positiveInteger" },
+      "minItems": { "$ref": "schemaDefinition.json#/definitions/positiveIntegerDefault0" },
+      "uniqueItems": { "$ref": "schemaDefinition.json#/properties#/uniqueItems" },
+      "enum": { "$ref": "schemaDefinition.json#/properties#/enum" },
+      "multipleOf": { "$ref": "schemaDefinition.json#/properties#/multipleOf" },
+      "description": { "type": "string" },
+      "schema": { "$ref": "schemaDefinition.json#" }
+    },
+    "patternProperties": {
+      "^x-": { "$ref": "definitions.json#/vendorExtension" }
+    }
+  }
+}

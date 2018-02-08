@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["type", "schema"],
+    "type": {
+      "type": "string",
+      "enum": ["object"]
+    },
+    "description": { "type": "string" },
+    "schema": { "$ref": "../schemaDefinition.json#" }
+  }
+}

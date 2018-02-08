@@ -1,0 +1,28 @@
+{
+  "description": "One or more JSON representations for responses",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "required": ["description"],
+    "properties": {
+      "description": { "type": "string" },
+      "schema": {
+        "oneOf": [
+          { "$ref": "schemaDefinition.json#" },
+          { "$ref": "definitions.json#/fileSchema" }
+        ]
+      },
+      "headers": {
+        "oneOf": [
+          { "$ref": "responseHeadersDefinition.json" },
+          { "$ref": "responseHeadersObjectDefinition.json" }
+        ]
+      },
+      "examples": { "$ref": "definitions.json#/examples" }
+    },
+    "additionalProperties": false,
+    "patternProperties": {
+      "^x-": { "$ref": "definitions.json#/vendorExtension" }
+    }
+  }
+}
