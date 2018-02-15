@@ -25,7 +25,8 @@
             },{
                 "name": "color",
                 "in": "header",
-                "type": "object"
+                "type": "object",
+                "schema": {}
             }],
             "controllerId": "store.shoes_controller",
             "operationId": "post_shoe",

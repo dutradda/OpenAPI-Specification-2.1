@@ -15,8 +15,7 @@
         "number",
         "boolean",
         "integer",
-        "array",
-        "object"
+        "array"
       ]
     },
     "required": { "$ref": "commonPropertiesDefinition.json#/required" },
