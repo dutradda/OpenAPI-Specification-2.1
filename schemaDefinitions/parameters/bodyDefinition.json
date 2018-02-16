@@ -1,22 +1,42 @@
 {
-  "type": "object",
-  "required": [
-    "name",
-    "in",
-    "schema"
-  ],
-  "patternProperties": {
-    "^x-": { "$ref": "../definitions.json#/vendorExtension" }
-  },
-  "properties": {
-    "in": {
-      "allOf": [{ "$ref": "commonPropertiesDefinition.json#/in" }],
-      "enum": ["body"]
+  "anyOf": [{
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "name",
+      "in",
+      "schema"
+    ],
+    "patternProperties": {
+      "^x-": { "$ref": "../definitions.json#/vendorExtension" }
     },
-    "required": { "$ref": "commonPropertiesDefinition.json#/required" },
-    "description": { "$ref": "commonPropertiesDefinition.json#/description" },
-    "name": { "$ref": "commonPropertiesDefinition.json#/name" },
-    "schema": { "$ref": "../schemaDefinition.json#" }
-  },
-  "additionalProperties": false
+    "properties": {
+      "in": {
+        "allOf": [{ "$ref": "commonPropertiesDefinition.json#/in" }],
+        "enum": ["body"]
+      },
+      "required": { "$ref": "commonPropertiesDefinition.json#/required" },
+      "description": { "$ref": "commonPropertiesDefinition.json#/description" },
+      "name": { "$ref": "commonPropertiesDefinition.json#/name" },
+      "schema": { "$ref": "../schemaDefinition.json#" },
+      "example": { "$ref": "commonPropertiesDefinition.json#/example" }
+    }
+  },{
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "name",
+      "in",
+      "schema"
+    ],
+    "patternProperties": { "$ref": "#/anyOf/0/patternProperties" },
+    "properties": {
+      "in": { "$ref": "#/anyOf/0/properties/in" },
+      "required": { "$ref": "commonPropertiesDefinition.json#/required" },
+      "description": { "$ref": "commonPropertiesDefinition.json#/description" },
+      "name": { "$ref": "commonPropertiesDefinition.json#/name" },
+      "schema": { "$ref": "../schemaDefinition.json#" },
+      "examples": { "$ref": "commonPropertiesDefinition.json#/examples" }
+    }
+  }]
 }

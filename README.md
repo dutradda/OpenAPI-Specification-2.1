@@ -146,3 +146,31 @@ The [`items`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/
     }
 }]
 ```
+
+
+### 10.
+The [`Example Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#exampleObject) and [`examples`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#fixed-fields-10) directive of the [`OAS 3`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md) [`Parameter Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#parameterObject) is now available. Example:
+
+```json
+"parameters": [{
+    "name": "test1",
+    "in": "query",
+    "type": "object",
+    "schema": {
+        "properties": {
+            "test": {"type": "boolean"}
+        }
+    },
+    "example": {
+        "test": true
+    }
+},{
+    "name": "test2",
+    "in": "header",
+    "type": "integer",
+    "examples": {
+        "test1": 1,
+        "test2": 2
+    }
+}]
+```

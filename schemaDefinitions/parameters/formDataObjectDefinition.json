@@ -1,25 +1,48 @@
 {
-  "type": "object",
-  "required": [
-    "name",
-    "in",
-    "schema",
-    "type"
-  ],
-  "patternProperties": {
-    "^x-": { "$ref": "../definitions.json#/vendorExtension" }
-  },
-  "properties": {
-    "type": {
-      "type": "string",
-      "enum": ["object"]
+  "anyOf": [{
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "name",
+      "in",
+      "schema",
+      "type"
+    ],
+    "patternProperties": {
+      "^x-": { "$ref": "../definitions.json#/vendorExtension" }
     },
-    "in": { "$ref": "formDataDefinition.json#/properties/in" },
-    "allowEmptyValue": { "$ref": "commonPropertiesDefinition.json#/allowEmptyValue" },
-    "description": { "$ref": "commonPropertiesDefinition.json#/description" },
-    "name": { "$ref": "commonPropertiesDefinition.json#/name" },
-    "required": { "$ref": "commonPropertiesDefinition.json#/required" },
-    "schema": { "$ref": "../schemaDefinition.json#" }
-  },
-  "additionalProperties": false
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": ["object"]
+      },
+      "in": { "$ref": "formDataDefinition.json#/anyOf/0/properties/in" },
+      "allowEmptyValue": { "$ref": "commonPropertiesDefinition.json#/allowEmptyValue" },
+      "description": { "$ref": "commonPropertiesDefinition.json#/description" },
+      "name": { "$ref": "commonPropertiesDefinition.json#/name" },
+      "required": { "$ref": "commonPropertiesDefinition.json#/required" },
+      "schema": { "$ref": "../schemaDefinition.json#" },
+      "example": { "$ref": "commonPropertiesDefinition.json#/example" }
+    }
+  },{
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "name",
+      "in",
+      "schema",
+      "type"
+    ],
+    "patternProperties": { "$ref": "#/anyOf/0/patternProperties" },
+    "properties": {
+      "type": { "$ref": "#/anyOf/0/properties/type" },
+      "in": { "$ref": "formDataDefinition.json#/anyOf/0/properties/in" },
+      "allowEmptyValue": { "$ref": "commonPropertiesDefinition.json#/allowEmptyValue" },
+      "description": { "$ref": "commonPropertiesDefinition.json#/description" },
+      "name": { "$ref": "commonPropertiesDefinition.json#/name" },
+      "required": { "$ref": "commonPropertiesDefinition.json#/required" },
+      "schema": { "$ref": "../schemaDefinition.json#" },
+      "examples": { "$ref": "commonPropertiesDefinition.json#/examples" }
+    }
+  }] 
 }

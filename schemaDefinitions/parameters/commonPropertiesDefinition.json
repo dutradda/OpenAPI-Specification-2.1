@@ -24,4 +24,20 @@
     "default": false,
     "description": "allows sending a parameter by name only or with an empty value."
   },
+  "example": {
+    "anyOf": [
+      { "type": "string" },
+      { "type": "boolean" },
+      { "type": "integer" },
+      { "type": "number" },
+      { "type": "array" },
+      { "type": "object" }
+    ]
+  },
+  "examples": {
+    "type": "object",
+    "patternProperties": {
+      ".*": { "$ref": "#/example" }
+    }
+  }
 }

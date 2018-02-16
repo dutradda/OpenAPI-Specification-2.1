@@ -1,26 +1,48 @@
 {
-  "type": "object",
-  "required": [
-    "name",
-    "in",
-    "schema",
-    "type"
-  ],
-  "patternProperties": {
-    "^x-": { "$ref": "../definitions.json#/vendorExtension" }
-  },
-  "required": ["required"],
-  "properties": {
-    "type": {
-      "type": "string",
-      "enum": ["object"]
+  "anyOf": [{
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "name",
+      "in",
+      "schema",
+      "type"
+    ],
+    "patternProperties": {
+      "^x-": { "$ref": "../definitions.json#/vendorExtension" }
     },
-    "in": { "$ref": "pathDefinition.json#/properties/in" },
-    "required": { "$ref": "pathDefinition.json#/properties/required" },
-    "description": { "$ref": "commonPropertiesDefinition.json#/description" },
-    "name": { "$ref": "commonPropertiesDefinition.json#/name" },
-    "required": { "$ref": "commonPropertiesDefinition.json#/required" },
-    "schema": { "$ref": "../schemaDefinition.json#" }
-  },
-  "additionalProperties": false
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": ["object"]
+      },
+      "in": { "$ref": "pathDefinition.json#/anyOf/0/properties/in" },
+      "required": { "$ref": "pathDefinition.json#/anyOf/0/properties/required" },
+      "description": { "$ref": "commonPropertiesDefinition.json#/description" },
+      "name": { "$ref": "commonPropertiesDefinition.json#/name" },
+      "required": { "$ref": "commonPropertiesDefinition.json#/required" },
+      "schema": { "$ref": "../schemaDefinition.json#" },
+      "example": { "$ref": "commonPropertiesDefinition.json#/example" }
+    }
+  },{
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "name",
+      "in",
+      "schema",
+      "type"
+    ],
+    "patternProperties": { "$ref": "#/anyOf/0/patternProperties" },
+    "properties": {
+      "type": { "$ref": "#/anyOf/0/properties/type" },
+      "in": { "$ref": "pathDefinition.json#/anyOf/0/properties/in" },
+      "required": { "$ref": "pathDefinition.json#/anyOf/0/properties/required" },
+      "description": { "$ref": "commonPropertiesDefinition.json#/description" },
+      "name": { "$ref": "commonPropertiesDefinition.json#/name" },
+      "required": { "$ref": "commonPropertiesDefinition.json#/required" },
+      "schema": { "$ref": "../schemaDefinition.json#" },
+      "examples": { "$ref": "commonPropertiesDefinition.json#/examples" }
+    }
+  }]
 }

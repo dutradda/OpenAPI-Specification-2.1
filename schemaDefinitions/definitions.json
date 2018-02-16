@@ -302,9 +302,6 @@
   },
   "definitions": {
     "type": "object",
-    "additionalProperties": {
-      "$ref": "schemaDefinition.json#"
-    },
     "properties": {
       "allOf": {
         "type": "array",

@@ -1,9 +1,14 @@
 {
-    "color": {
-        "enum": [
-            "red",
-            "green",
-            "blue"
-        ]
-    }
+  "color": {
+    "enum": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  "colorsExample": {
+    "red" : {"name": "red"},
+    "green": {"name":  "green"},
+    "blue": {"name":  "blue"}
+  }
 }
