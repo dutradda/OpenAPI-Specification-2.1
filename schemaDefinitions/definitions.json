@@ -154,9 +154,7 @@
   "operation": {
     "type": "object",
     "required": [
-      "responses",
-      "controllerId",
-      "operationId"
+      "responses"
     ],
     "additionalProperties": false,
     "patternProperties": {

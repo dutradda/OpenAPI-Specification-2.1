@@ -9,7 +9,7 @@ To validate yours 2.1 specifications you can use the [command-line validator](ht
 ## Updates over version 2.0
 
 ### 1. 
-Enabled the use of the [`allof`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schema-object) directive on the root of the [`Paths Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#pathsObject) object. Example:
+Enabled the use of the [`allOf`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schema-object) directive on the root of the [`Paths Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#pathsObject) object. Example:
 
 ```json
 "paths": {
@@ -23,7 +23,7 @@ Enabled the use of the [`allof`](https://github.com/OAI/OpenAPI-Specification/bl
 
 
 ### 2.
-Enabled the use of the [`allof`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schema-object) directive on the root of the [`Definitions Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#definitionsObject) object. Example:
+Enabled the use of the [`allOf`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schema-object) directive on the root of the [`Definitions Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#definitionsObject) object. Example:
 
 ```json
 "definitions": {
@@ -37,7 +37,7 @@ Enabled the use of the [`allof`](https://github.com/OAI/OpenAPI-Specification/bl
 
 
 ### 3.
-Added the `controllerId` property to the [`Paths Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#pathsObject). This property is required. Example:
+Added the `controllerId` property to the [`Operation Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#operationObject). Example:
 
 ```json
 "post": {
@@ -53,10 +53,6 @@ Added the `controllerId` property to the [`Paths Object`](https://github.com/OAI
 
 
 ### 4.
-The [`operationId`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#operation-object) property of the [`Paths Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#pathsObject) is mandatory now.
-
-
-### 5.
 Enabled the use of the [`anyOf`](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.5.4) directive on the [`Schema Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schema-object). Example:
 
 ```json
@@ -75,7 +71,7 @@ Enabled the use of the [`anyOf`](https://tools.ietf.org/html/draft-fge-json-sche
 ```
 
 
-### 6.
+### 5.
 Enabled the use of the [`oneOf`](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.5.5) directive on the [`Schema Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schema-object) object. Example:
 
 ```json
@@ -94,7 +90,7 @@ Enabled the use of the [`oneOf`](https://tools.ietf.org/html/draft-fge-json-sche
 ```
 
 
-### 7.
+### 6.
 Enabled the use of the [`patternProperties`](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.4.4) directive on the [`Schema Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schema-object) object. Example:
 
 ```json
@@ -112,7 +108,7 @@ Enabled the use of the [`patternProperties`](https://tools.ietf.org/html/draft-f
 ```
 
 
-### 8.
+### 7.
 Enabled [`object`](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.4) type for any parameter, not just for body anymore. Example:
 
 ```json
@@ -127,7 +123,7 @@ Enabled [`object`](https://tools.ietf.org/html/draft-fge-json-schema-validation-
 ```
 
 
-### 9.
+### 8.
 The [`items`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#parameterObject) directive of the `array` type now accepts objects and any directive of the original [json-schema draft4](https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.3). Example:
 
 ```json
@@ -151,7 +147,7 @@ The [`items`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/
 ```
 
 
-### 10.
+### 9.
 The [`Example Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#exampleObject) and [`examples`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#fixed-fields-10) directive of the [`OAS 3`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md) [`Parameter Object`](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#parameterObject) is now available. Example:
 
 ```json

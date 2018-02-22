@@ -1,8 +1,6 @@
 {
     "/dresses": {
         "post": {
-            "controllerId": "store.dresses_controller",
-            "operationId": "post_dress",
             "responses": {
                 "201": {
                     "description": "Created"
