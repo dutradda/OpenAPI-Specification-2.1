@@ -3,6 +3,9 @@
 ## Introductions
 This specification is an unofficial update of the OpenAPI 2.0 Specification.
 
+## Validation
+To validate yours 2.1 specifications you can use the [command-line validator](https://github.com/dutradda/openapi21-python) tool.
+
 ## Updates over version 2.0
 
 ### 1. 
