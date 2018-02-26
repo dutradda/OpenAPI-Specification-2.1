@@ -17,7 +17,7 @@
     "swagger": {
       "type": "string",
       "enum": [
-        "2.1"
+        "2.0", "2.1"
       ],
       "description": "The Swagger version of this document."
     },
