@@ -54,13 +54,17 @@
       ]
     },
     "parameters": {
-      "$ref": "schemaDefinitions/definitions.json#/parametersList"
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "schemaDefinitions/definitions.json#/parametersList/items"
+      }
     },
     "paths": {
       "$ref": "schemaDefinitions/definitions.json#/paths"
     },
     "definitions": {
-      "$ref": "schemaDefinitions/definitions.json#/definitions"
+      "type": "object",
+      "description": "One or more JSON objects describing the schemas being consumed and produced by the API."
     },
     "responses": {
       "$ref": "schemaDefinitions/responsesDefinition.json#"

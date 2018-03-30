@@ -259,15 +259,8 @@
     "additionalItems": false,
     "items": {
       "oneOf": [
-        {
-          "oneOf": [
-            {"$ref": "parameters/bodyDefinition.json#"},
-            {"$ref": "parameters/nonBodyDefinition.json#"}
-          ]
-        },
-        {
-          "$ref": "#/jsonReference"
-        }
+        {"$ref": "parameters/bodyDefinition.json#"},
+        {"$ref": "parameters/nonBodyDefinition.json#"}
       ]
     },
     "uniqueItems": true
@@ -298,22 +291,8 @@
     },
     "uniqueItems": true
   },
-  "definitions": {
-    "type": "object",
-    "properties": {
-      "allOf": {
-        "type": "array",
-        "minItems": 1,
-        "items": {
-          "$ref": "#/definitions"
-        }
-      }
-    },
-    "description": "One or more JSON objects describing the schemas being consumed and produced by the API."
-  },
   "examples": {
-    "type": "object",
-    "additionalProperties": true
+    "type": "object"
   },
   "fileSchema": {
     "type": "object",
