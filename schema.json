@@ -53,6 +53,9 @@
         }
       ]
     },
+    "parameters": {
+      "$ref": "schemaDefinitions/definitions.json#/parametersList"
+    },
     "paths": {
       "$ref": "schemaDefinitions/definitions.json#/paths"
     },
