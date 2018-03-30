@@ -4,11 +4,13 @@
     "type": "object",
     "additionalProperties": false,
     "required": ["type", "schema"],
-    "type": {
-      "type": "string",
-      "enum": ["object"]
-    },
-    "description": { "type": "string" },
-    "schema": { "$ref": "../schemaDefinition.json#" }
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": ["object"]
+      },
+      "description": { "type": "string" },
+      "schema": { "$ref": "../schemaDefinition.json#" }
+    }
   }
 }

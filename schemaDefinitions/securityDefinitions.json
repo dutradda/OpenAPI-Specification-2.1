@@ -38,7 +38,6 @@
       ]
     }
   },
-
   "basicAuthenticationSecurity": {
     "type": "object",
     "additionalProperties": false,

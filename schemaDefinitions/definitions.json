@@ -219,7 +219,7 @@
         "default": false
       },
       "security": {
-        "$ref": "#/security"
+        "$ref": "securityDefinitions.json#/security"
       }
     }
   },
@@ -358,34 +358,6 @@
       "example": {}
     },
     "additionalProperties": false
-  },
-  "xml": {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "name": {
-        "type": "string"
-      },
-      "namespace": {
-        "type": "string"
-      },
-      "prefix": {
-        "type": "string"
-      },
-      "attribute": {
-        "type": "boolean",
-        "default": false
-      },
-      "wrapped": {
-        "type": "boolean",
-        "default": false
-      }
-    },
-    "patternProperties": {
-      "^x-": {
-        "$ref": "#/vendorExtension"
-      }
-    }
   },
   "tag": {
     "type": "object",
