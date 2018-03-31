@@ -47,7 +47,7 @@
                 "type": "string"
             }],
             "controllerId": "store.shoes_controller",
-            "operationId": "post_shoe",
+            "operationId": "get_shoe",
             "responses": {
                 "201": {
                     "description": "Created",
