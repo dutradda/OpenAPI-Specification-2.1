@@ -10,7 +10,6 @@
                     "color": "red"
                 }
             }],
-            "controllerId": "store.shoes_controller",
             "operationId": "post_shoe",
             "responses": {
                 "201": {
@@ -46,7 +45,6 @@
                 "in": "query",
                 "type": "string"
             }],
-            "controllerId": "store.shoes_controller",
             "operationId": "get_shoe",
             "responses": {
                 "201": {

@@ -10,7 +10,6 @@
                     "color": "red"
                 }
             }],
-            "controllerId": "store.dresses_controller",
             "operationId": "post_dress",
             "responses": {
                 "201": {
@@ -46,7 +45,6 @@
                 "in": "query",
                 "type": "string"
             }],
-            "controllerId": "store.dresses_controller",
             "operationId": "get_dress",
             "responses": {
                 "201": {

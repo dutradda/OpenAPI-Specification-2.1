@@ -181,10 +181,6 @@
       "externalDocs": {
         "$ref": "#/externalDocs"
       },
-      "controllerId": {
-        "type": "string",
-        "description": "An identifier of the controller."
-      },
       "operationId": {
         "type": "string",
         "description": "An unique identifier of the operation."
